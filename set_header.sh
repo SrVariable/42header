@@ -1,24 +1,24 @@
 #!/bin/bash
 # ./set_header.sh
 
-# Set variables
+	# Set variables
 
 if [ ! -z "$USER" ]
 then
-    echo "USER=`/usr/bin/whoami`" >> ~/.zshrc
-    echo "export USER" >> ~/.zshrc
+    echo "USER=`/usr/bin/whoami`" >> $HOME/.${SHELL##/bin/}rc
+    echo "export USER" >> $HOME/.${SHELL##/bin/}rc
 fi
 
 if [ ! -z "$GROUP" ]
 then
-    echo "GROUP=`/usr/bin/id -gn $user`" >> ~/.zshrc
-    echo "export GROUP" >> ~/.zshrc
+    echo "GROUP=`/usr/bin/id -gn $user`" >> $HOME/.${SHELL##/bin/}rc
+    echo "export GROUP" >> $HOME/.${SHELL##/bin/}rc
 fi
 
 if [ ! -z "$MAIL" ]
 then
-    echo "MAIL="$USER@student.42.fr"" >> ~/.zshrc
-    echo "export MAIL" >> ~/.zshrc
+    echo "MAIL="$USER@student.42.fr"" >> $HOME/.${SHELL##/bin/}rc
+    echo "export MAIL" >> $HOME/.${SHELL##/bin/}rc
 fi
 
 mkdir -p ~/.vim/plugin
@@ -26,4 +26,4 @@ mkdir -p ~/.vim/plugin
 # Add stdheader to vim plugins
 cp plugin/stdheader.vim ~/.vim/plugin/
 
-source ~/.zshrc
+source $HOME/.${SHELL##/bin/}rc
